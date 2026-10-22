@@ -31,5 +31,8 @@ public class Strumento {
         this.stato = nuovoStato;
     }
 
-
+    @Override
+    public String toString () {
+        return this.tipo + " (" + this.id + ") " + this.stato;
+    }
 }
