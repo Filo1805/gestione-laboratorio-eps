@@ -1,5 +1,6 @@
 package it.unibs.eps.laboratorio.fileManager;
 
+import it.unibs.eps.laboratorio.model.Evento;
 import it.unibs.eps.laboratorio.model.StatoStrumento;
 import it.unibs.eps.laboratorio.model.Strumento;
 
@@ -21,6 +22,7 @@ public class FilePersistenceManager {
 
     //Nome del file in cui salvare i dati del catalogo
     private static final String FILE_NAME = "catalogo_strumenti.txt";
+    private static final String FILE_EVENTI = "registro_eventi.txt";
 
     /**
      * Compiti della classe
@@ -108,7 +110,7 @@ public class FilePersistenceManager {
 
         }
         catch( FileNotFoundException e ) {
-            System.err.println("[ERRORE] Impossibile creare o scrivere su file di testo: " + e.getMessage());
+            System.err.println("[ERRORE] Impossibile creare o scrivere su file del catalogo strumenti: " + e.getMessage());
         }
     }
 
@@ -126,6 +128,27 @@ public class FilePersistenceManager {
         defaultList.add(new Strumento("MUL-02", "Multimetro"));
 
         return defaultList;
+
+    }
+
+
+    /**
+     * Salva lo storico degli eventi su un file registro_eventi.txt
+     * utilizzando synchronized evitiamo che più thread scrivano sul file allo stesso momento
+     * rischiando di corromperlo
+     */
+    public synchronized void salvaEventi ( List<Evento> eventi ) {
+
+        try ( PrintWriter writer = new PrintWriter(new File(FILE_EVENTI))) {
+
+            for ( Evento e: eventi ) {
+                writer.println(e.getTime() + " - " + e.getDescrizione());
+            }
+            System.out.println("[PERSISTENZA] Registro eventi salvato con successo sul file");
+        }
+        catch( FileNotFoundException e ) {
+            System.err.println("[ERRORE] Impossibile creare o scrivere su file degli eventi: " + e.getMessage());
+        }
 
     }
 }
