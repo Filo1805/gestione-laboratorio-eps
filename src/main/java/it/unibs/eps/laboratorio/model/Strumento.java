@@ -13,6 +13,12 @@ public class Strumento {
         this.stato = StatoStrumento.DISPONIBILE;
     }
 
+    public Strumento (String id, String tipo, StatoStrumento stato ) {
+        this.id = id;
+        this.tipo = tipo;
+        this.stato = stato;
+    }
+
     //Metodi Get supplementari (VEDERE SE ELIMINARE IN CASO DI NON UTILIZZO)
     public String getId (){
         return this.id;
