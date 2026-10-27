@@ -9,6 +9,7 @@ public class Laboratorio {
 
     private List<Strumento> strumenti;
     private FilePersistenceManager fileManager;
+    private List<Evento> storicoEventi = new ArrayList<>();
 
     public Laboratorio () {
         this.fileManager = new FilePersistenceManager();
@@ -37,5 +38,13 @@ public class Laboratorio {
 
         return strumentoDisp;
 
+    }
+
+    public synchronized void nuovoEvento (Evento evento ) {
+        storicoEventi.add(evento);
+    }
+
+    public List<Evento> getStoricoEventi () {
+        return storicoEventi;
     }
 }
