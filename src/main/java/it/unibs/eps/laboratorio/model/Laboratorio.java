@@ -25,5 +25,17 @@ public class Laboratorio {
         return strumenti;
     }
 
+    public Strumento trovaStrumentoDisponibile (String tipoStrumento ) {
 
+        Strumento strumentoDisp = null;
+
+        for(Strumento s : strumenti ) {
+            if ( s.getTipo().equals( tipoStrumento ) && s.getStato().equals(StatoStrumento.DISPONIBILE) ) {
+                strumentoDisp = s;
+            }
+        }
+
+        return strumentoDisp;
+
+    }
 }
