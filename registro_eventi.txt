@@ -1,0 +1,11 @@
+03-11-2026 11:58:22 - L'utenteBetti ha preso in prestito lo strumento: Generatore
+03-11-2026 11:58:22 - L'utenteLofi ha preso in prestito lo strumento: Multimetro
+03-11-2026 11:58:22 - L'utenteMathias è in attesa dello strumento: Multimetro
+03-11-2026 11:58:22 - L'utenteCiri è in attesa dello strumento: Oscilloscopio
+03-11-2026 11:58:25 - L'utenteLofi ha restituito lo strumento: Multimetro
+03-11-2026 11:58:25 - L'utenteMathias ha preso in prestito lo strumento: Multimetro
+03-11-2026 11:58:25 - L'utenteCiri è in attesa dello strumento: Oscilloscopio
+03-11-2026 11:58:25 - L'utenteBetti ha restituito lo strumento: Generatore
+03-11-2026 11:58:25 - L'utenteCiri è in attesa dello strumento: Oscilloscopio
+03-11-2026 11:58:28 - L'utenteMathias ha restituito lo strumento: Multimetro
+03-11-2026 11:58:28 - L'utenteCiri è in attesa dello strumento: Oscilloscopio
