@@ -58,7 +58,17 @@ public class FilePersistenceManager {
                     if ( parti.length == 3 ) {
                         String id = parti[0];
                         String tipo = parti[1];
-                        StatoStrumento stato = StatoStrumento.valueOf(parti[2].trim());
+                        StatoStrumento stato;
+
+                        if ( StatoStrumento.valueOf(parti[2].trim()).equals(StatoStrumento.IN_PRESTITO)) {
+
+                             stato = StatoStrumento.DISPONIBILE;
+                             System.out.println("[INFO] Strumento nel file trovato in stato di prestito, forzata la restituzione");
+                        }
+                        else {
+
+                            stato = StatoStrumento.valueOf(parti[2].trim());
+                        }
 
                         strumentiCaricati.add( new Strumento( id, tipo, stato));
                     }
