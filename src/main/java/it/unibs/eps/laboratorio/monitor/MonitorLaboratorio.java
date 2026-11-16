@@ -19,22 +19,26 @@ public class MonitorLaboratorio {
      */
     public synchronized Strumento richiediStrumento(String tipoStrumento, Utente utente ) throws InterruptedException {
 
-        Strumento strumentoDisponibile = null;
 
-        while( (strumentoDisponibile = laboratorio.trovaStrumentoDisponibile(tipoStrumento)) == null ) {
+            Strumento strumentoDisponibile = null;
 
-            laboratorio.nuovoEvento(new Evento( "L'utente" + utente.getName() + " è in attesa dello strumento: " + tipoStrumento ));
-            System.out.println("[MONITOR] L'utente " + utente.getName() + " è in attesa dello strumento: " + tipoStrumento );
+            while ((strumentoDisponibile = laboratorio.trovaStrumentoDisponibile(tipoStrumento)) == null) {
+
+                laboratorio.nuovoEvento(new Evento("L'utente" + utente.getName() + " è in attesa dello strumento: " + tipoStrumento));
+                System.out.println("[MONITOR] L'utente " + utente.getName() + " è in attesa dello strumento: " + tipoStrumento);
+                wait();
+
+            }
+
+            //Assegnazione dello strumento
+            strumentoDisponibile.setStato(StatoStrumento.IN_PRESTITO);
+            laboratorio.nuovoEvento(new Evento("L'utente" + utente.getName() + " ha preso in prestito lo strumento: " + tipoStrumento));
+            System.out.println("[MONITOR] SUCCESS: " + utente.getName() + " ha preso in prestito lo strumento: " + tipoStrumento);
+
             wait();
 
-        }
+            return strumentoDisponibile;
 
-        //Assegnazione dello strumento
-        strumentoDisponibile.setStato(StatoStrumento.IN_PRESTITO);
-        laboratorio.nuovoEvento(new Evento("L'utente" + utente.getName() + " ha preso in prestito lo strumento: " + tipoStrumento ));
-        System.out.println("[MONITOR] SUCCESS: " + utente.getName() + " ha preso in prestito lo strumento: " + tipoStrumento );
-
-        return strumentoDisponibile;
 
     }
 
