@@ -11,6 +11,9 @@ public class Laboratorio {
     private FilePersistenceManager fileManager;
     private List<Evento> storicoEventi = new ArrayList<>();
 
+    //Lista degli ascoltatori
+    private final List<LaboratorioListener> listeners = new ArrayList<>();
+
     public Laboratorio () {
         this.fileManager = new FilePersistenceManager();
         //All'avvio la classe Laboratorio utilizza il fileManager per caricare i dati (da file o di default)
@@ -22,7 +25,8 @@ public class Laboratorio {
         fileManager.salvaCatalogo(strumenti);
     }
 
-    public List<Strumento> getStrumenti () {
+    //Metodi Get resi synchronized per essere utilizzati anche dalla GUI in modo da essere aggiornati allo stato corrente
+    public synchronized List<Strumento> getStrumenti () {
         return strumenti;
     }
 
@@ -41,10 +45,34 @@ public class Laboratorio {
     }
 
     public synchronized void nuovoEvento (Evento evento ) {
+
         storicoEventi.add(evento);
+        notificaStatoAggiornato();
+        notificaNuovoEvento(evento);
     }
 
-    public List<Evento> getStoricoEventi () {
+    //Metodi Get resi synchronized per essere utilizzati anche dalla GUI in modo da essere aggiornati allo stato corrente
+    public synchronized List<Evento> getStoricoEventi () {
         return storicoEventi;
     }
+
+    //Permette all'interfaccia grafica di registrarsi come ascoltatore
+    public synchronized void nuovoListener (LaboratorioListener listener) {
+        listeners.add(listener);
+    }
+
+    //Aggiornamenti interni
+    public synchronized void notificaStatoAggiornato () {
+        for( LaboratorioListener listener : listeners ) {
+            listener.onStatoAggiornato();
+        }
+    }
+
+    public synchronized void notificaNuovoEvento (Evento evento) {
+        for( LaboratorioListener listener : listeners ) {
+            listener.onNuovoEvento(evento);
+        }
+    }
+
+
 }
