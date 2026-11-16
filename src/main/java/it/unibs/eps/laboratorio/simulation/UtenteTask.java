@@ -49,7 +49,7 @@ public class UtenteTask implements Runnable {
 
         }
         catch (InterruptedException e ) {
-            System.out.println("[ERRORE] Il thread dell'utente " + utente.getName() + " é stato interrotto.");
+            System.out.println("[INTERROTTO] Il thread dell'utente " + utente.getName() + " é stato interrotto.");
             Thread.currentThread().interrupt();
         }
 
