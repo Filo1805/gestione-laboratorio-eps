@@ -10,6 +10,9 @@ import it.unibs.eps.laboratorio.simulation.UtenteTask;
 import javax.swing.*;
 
 public class Main {
+
+    public static final String version = "v2.2.0";
+
     public static void main(String[] args){
 
         MonitorLaboratorio monitor = new MonitorLaboratorio();
@@ -21,7 +24,7 @@ public class Main {
         });
 
         /** TUTTO QUELLO CHE È COMMENTATO QUA SOTTO FA PARTE DI UNA BETA DI TEST DEL PROGRAMMA
-         
+
         System.out.println("-Avvio del progetto Laboratorio EPS-");
 
         //1. Inizializzazio il laboratorio
