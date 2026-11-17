@@ -20,7 +20,8 @@ public class Main {
             graphic.setVisible(true);
         });
 
-        /**
+        /** TUTTO QUELLO CHE È COMMENTATO QUA SOTTO FA PARTE DI UNA BETA DI TEST DEL PROGRAMMA
+         
         System.out.println("-Avvio del progetto Laboratorio EPS-");
 
         //1. Inizializzazio il laboratorio
