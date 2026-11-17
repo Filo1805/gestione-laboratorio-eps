@@ -18,6 +18,7 @@ public class Laboratorio {
         this.fileManager = new FilePersistenceManager();
         //All'avvio la classe Laboratorio utilizza il fileManager per caricare i dati (da file o di default)
         this.strumenti = fileManager.creaCatalogo();
+        this.storicoEventi = fileManager.caricaEventi();
     }
 
     //Metodo per salvare lo stato corrente del laboratorio
@@ -28,6 +29,15 @@ public class Laboratorio {
     //Metodi Get resi synchronized per essere utilizzati anche dalla GUI in modo da essere aggiornati allo stato corrente
     public synchronized List<Strumento> getStrumenti () {
         return strumenti;
+    }
+
+
+    public void setStrumenti (List<Strumento> strumenti) {
+        this.strumenti = strumenti;
+    }
+
+    public void setStoricoEventi (List<Evento> eventi) {
+        this.storicoEventi = eventi;
     }
 
     public Strumento trovaStrumentoDisponibile (String tipoStrumento ) {
@@ -76,3 +86,4 @@ public class Laboratorio {
 
 
 }
+
