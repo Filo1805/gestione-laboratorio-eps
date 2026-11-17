@@ -8,23 +8,19 @@ import it.unibs.eps.laboratorio.monitor.MonitorLaboratorio;
 import it.unibs.eps.laboratorio.simulation.UtenteTask;
 
 import javax.swing.*;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
 
 public class Main {
     public static void main(String[] args){
-        /**
-        Laboratorio laboratorio = new Laboratorio();
-        MonitorLaboratorio monitor = new MonitorLaboratorio(laboratorio);
-        LaboratorioController controller = new LaboratorioController(laboratorio, monitor);
+
+        MonitorLaboratorio monitor = new MonitorLaboratorio();
+        LaboratorioController controller = new LaboratorioController(monitor);
 
         SwingUtilities.invokeLater(() -> {
             LaboratorioGUI graphic = new LaboratorioGUI(controller);
             graphic.setVisible(true);
         });
-`       */
 
+        /**
         System.out.println("-Avvio del progetto Laboratorio EPS-");
 
         //1. Inizializzazio il laboratorio
@@ -68,6 +64,7 @@ public class Main {
 
         System.out.println("=== SIMULAZIONE COMPLETATA ===");
         System.out.println("Controlla i file 'catalogo_strumenti.txt' e 'registro_eventi.txt' per verificare la persistenza.");
+    */
 
     }
 }
