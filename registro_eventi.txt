@@ -49,3 +49,51 @@
 10-11-2026 13:19:24 - L'utenteBrescio è in attesa dello strumento: Oscilloscopio
 10-11-2026 13:19:24 - L'utenteLofi è in attesa dello strumento: Multimetro
 10-11-2026 13:19:24 - L'utenteMatthias è in attesa dello strumento: Multimetro
+17-11-2026 15:24:34 - L'utenteCiri ha preso in prestito lo strumento: Oscilloscopio
+17-11-2026 15:24:34 - L'utenteBette ha preso in prestito lo strumento: Generatore
+17-11-2026 15:24:34 - L'utenteMatthias ha preso in prestito lo strumento: Multimetro
+17-11-2026 15:24:34 - L'utenteBrescio è in attesa dello strumento: Oscilloscopio
+17-11-2026 15:24:34 - L'utenteLofi è in attesa dello strumento: Multimetro
+17-11-2026 15:24:37 - L'utenteBette ha restituito lo strumento: Generatore
+17-11-2026 15:24:37 - L'utenteMatthias ha restituito lo strumento: Multimetro
+17-11-2026 15:24:37 - L'utenteCiri ha restituito lo strumento: Oscilloscopio
+17-11-2026 15:24:37 - L'utenteLofi ha preso in prestito lo strumento: Multimetro
+17-11-2026 15:24:37 - L'utenteBrescio ha preso in prestito lo strumento: Oscilloscopio
+17-11-2026 15:24:40 - L'utenteBrescio ha restituito lo strumento: Oscilloscopio
+17-11-2026 15:24:40 - L'utenteLofi ha restituito lo strumento: Multimetro
+17-11-2026 15:24:46 - L'utenteCiri ha preso in prestito lo strumento: Oscilloscopio
+17-11-2026 15:24:46 - L'utenteLofi ha preso in prestito lo strumento: Multimetro
+17-11-2026 15:24:46 - L'utenteMatthias è in attesa dello strumento: Multimetro
+17-11-2026 15:24:46 - L'utenteBette ha preso in prestito lo strumento: Generatore
+17-11-2026 15:24:46 - L'utenteBrescio è in attesa dello strumento: Oscilloscopio
+17-11-2026 15:24:49 - L'utenteCiri ha restituito lo strumento: Oscilloscopio
+17-11-2026 15:24:49 - L'utenteBrescio ha preso in prestito lo strumento: Oscilloscopio
+17-11-2026 15:24:49 - L'utenteBette ha restituito lo strumento: Generatore
+17-11-2026 15:24:49 - L'utenteLofi ha restituito lo strumento: Multimetro
+17-11-2026 15:24:49 - L'utenteMatthias ha preso in prestito lo strumento: Multimetro
+17-11-2026 15:24:49 - L'utenteMatthias ha restituito lo strumento: Multimetro
+17-11-2026 15:24:49 - L'utenteBrescio ha restituito lo strumento: Oscilloscopio
+17-11-2026 15:24:53 - L'utenteCiri ha preso in prestito lo strumento: Oscilloscopio
+17-11-2026 15:24:53 - L'utenteBette ha preso in prestito lo strumento: Generatore
+17-11-2026 15:24:53 - L'utenteLofi ha preso in prestito lo strumento: Multimetro
+17-11-2026 15:24:53 - L'utenteMatthias è in attesa dello strumento: Multimetro
+17-11-2026 15:24:53 - L'utenteBrescio è in attesa dello strumento: Oscilloscopio
+17-11-2026 15:24:56 - L'utenteLofi ha restituito lo strumento: Multimetro
+17-11-2026 15:24:56 - L'utenteMatthias ha preso in prestito lo strumento: Multimetro
+17-11-2026 15:24:56 - L'utenteCiri ha restituito lo strumento: Oscilloscopio
+17-11-2026 15:24:56 - L'utenteBrescio ha preso in prestito lo strumento: Oscilloscopio
+17-11-2026 15:24:56 - L'utenteBette ha restituito lo strumento: Generatore
+17-11-2026 15:24:59 - L'utenteBrescio ha restituito lo strumento: Oscilloscopio
+17-11-2026 15:24:59 - L'utenteMatthias ha restituito lo strumento: Multimetro
+17-11-2026 15:26:25 - L'utente Ciri ha preso in prestito lo strumento: Oscilloscopio
+17-11-2026 15:26:25 - L'utente Bette ha preso in prestito lo strumento: Generatore
+17-11-2026 15:26:25 - L'utente Brescio è in attesa dello strumento: Oscilloscopio
+17-11-2026 15:26:25 - L'utente Lofi ha preso in prestito lo strumento: Multimetro
+17-11-2026 15:26:25 - L'utente Matthias è in attesa dello strumento: Multimetro
+17-11-2026 15:26:28 - L'utente Lofi ha restituito lo strumento: Multimetro
+17-11-2026 15:26:28 - L'utente Matthias ha preso in prestito lo strumento: Multimetro
+17-11-2026 15:26:28 - L'utente Ciri ha restituito lo strumento: Oscilloscopio
+17-11-2026 15:26:28 - L'utente Brescio ha preso in prestito lo strumento: Oscilloscopio
+17-11-2026 15:26:28 - L'utente Bette ha restituito lo strumento: Generatore
+17-11-2026 15:26:31 - L'utente Matthias ha restituito lo strumento: Multimetro
+17-11-2026 15:26:31 - L'utente Brescio ha restituito lo strumento: Oscilloscopio
