@@ -14,7 +14,7 @@ Il sistema gestisce la concorrenza tra più utenti (rappresentati da thread dist
 ## Caratteristiche Principali:
 1. **Catalogo Strumenti:** Gestione di identificativi univoci, tipi e stati (`DISPONIBILE`, `IN_PRESTITO`).
 2. **Sincronizzazione Concorrente (Monitor):** Assegnazione sicura degli strumenti e gestione delle attese.
-3. **Interfaccia Gradica (GUI):** Dashboard interattiva in Java Swing per configurare, avviare e osservare l'andamento della simulazione in tempo reale.
+3. **Interfaccia Grafica (GUI):** Dashboard interattiva in Java Swing per configurare, avviare e osservare l'andamento della simulazione in tempo reale.
 4. **Pattern Observer:** Aggiornamento dinamico di tabelle e registro eventi tramite ascoltatori dedicati.
 5. **Persistenza su File:** Salvataggio automatico/manuale di catalogo strumenti e storico eventi, con ripristino intelligente dello stato all'avvio.
 
