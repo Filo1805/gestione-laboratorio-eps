@@ -107,17 +107,29 @@ public class LaboratorioGUI extends JFrame implements LaboratorioListener {
         btnInterrompiSimulazione.setFocusPainted(false);
 
 
+        //Configurazione della simulazione: numero di utenti (almeno 5) e durata del prestito
+        JSpinner spinnerUtenti = new JSpinner(new SpinnerNumberModel(5,5,20,1));
+        JSpinner spinnerDurata = new JSpinner(new SpinnerNumberModel(3,1,30,1));
+
+        //Inseriamo li Spinner nel pannello
+        pannelloControlli.add(new JLabel("Utenti:"));
+        pannelloControlli.add(spinnerUtenti);
+        pannelloControlli.add(new JLabel("Durata:"));
+        pannelloControlli.add(spinnerDurata);
+
+        //Inseriamo i bottoni nel pannello
         pannelloControlli.add(btnAvviaSimulazione);
         pannelloControlli.add(btnInterrompiSimulazione);
         pannelloControlli.add(btnSalva);
         pannelloControlli.add(btnCarica);
+
 
         add(pannelloControlli, BorderLayout.SOUTH);
 
         //4. Generatore Eventi pulsanti
         btnAvviaSimulazione.addActionListener(e -> {
             areaListaEventi.append("[SISTEMA] Avvio simulazione utenti...\n");
-            controller.avviaSimulazioneDefault(() -> SwingUtilities.invokeLater(() -> areaListaEventi.append("[SISTEMA] Simulazione terminata.\n")));
+            controller.avviaSimulazione((Integer) spinnerUtenti.getValue(), (Integer) spinnerDurata.getValue(), () -> SwingUtilities.invokeLater(() -> areaListaEventi.append("[SISTEMA] Simulazione terminata.\n")));
         });
 
         btnInterrompiSimulazione.addActionListener(e -> {
@@ -178,6 +190,7 @@ public class LaboratorioGUI extends JFrame implements LaboratorioListener {
 
     }
 
+    //Funzione che popola la tabella con gli strumenti iniziali
     private void caricaDatiIniziali() {
         onStatoAggiornato(); //Popola subito la tabella al primo avvio
     }
