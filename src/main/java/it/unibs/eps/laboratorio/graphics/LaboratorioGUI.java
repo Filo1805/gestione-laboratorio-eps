@@ -1,5 +1,6 @@
 package it.unibs.eps.laboratorio.graphics;
 
+import it.unibs.eps.laboratorio.Main;
 import it.unibs.eps.laboratorio.controller.LaboratorioController;
 import it.unibs.eps.laboratorio.model.*;
 
@@ -36,7 +37,7 @@ public class LaboratorioGUI extends JFrame implements LaboratorioListener {
 
         this.controller.registraListener(this);
 
-        setTitle("Gestione Prestito Strumenti - Laboratorio");
+        setTitle("Gestione Prestito Strumenti - Laboratorio " + Main.version );
         setSize(950,700);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
