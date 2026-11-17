@@ -5,6 +5,7 @@ import it.unibs.eps.laboratorio.model.*;
 import it.unibs.eps.laboratorio.monitor.MonitorLaboratorio;
 import it.unibs.eps.laboratorio.simulation.UtenteTask;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -29,8 +30,8 @@ public class LaboratorioController {
          monitor.registraListener(listener);
     }
 
-    public void avviaRichiestaUtente (Utente utente, String tipoStrumento) {
-        Runnable task = new UtenteTask(monitor, utente, tipoStrumento);
+    public void avviaRichiestaUtente (Utente utente, String tipoStrumento, int durataPrestito) {
+        Runnable task = new UtenteTask(monitor, utente, tipoStrumento, durataPrestito);
         executor.submit(task);
     }
 
@@ -57,25 +58,29 @@ public class LaboratorioController {
         }
     }
 
-    public void avviaSimulazioneDefault(Runnable allaFine) {
+
+    public void avviaSimulazione (int numeroUtenti, int durataSecondi, Runnable allaFine) {
         if(executor == null || executor.isShutdown() || executor.isTerminated()) {
             executor = Executors.newCachedThreadPool();
         }
 
         interrotta = false;
 
-        Utente u1 = new Utente("Ciri");
-        Utente u2 = new Utente("Bette");
-        Utente u3 = new Utente("Lofi");
-        Utente u4 = new Utente("Matthias");
-        Utente u5 = new Utente("Brescio");
+        //Tipi di strumento presenti nel catalogo
+        List<String> tipiStrumenti = new ArrayList<>();
+        for (Strumento s: monitor.getStrumenti()) {
+            if(!tipiStrumenti.contains(s.getTipo())) {
+                tipiStrumenti.add(s.getTipo());
+            }
+        }
 
-        avviaRichiestaUtente(u1, "Oscilloscopio");
-        avviaRichiestaUtente(u2, "Generatore");
-        avviaRichiestaUtente(u3, "Multimetro");
-        avviaRichiestaUtente(u4, "Multimetro");
-        avviaRichiestaUtente(u5, "Oscilloscopio");
+        //Creazione di Utente + "n" e richiesta
+        for(int i = 0; i < numeroUtenti; i++ ) {
+            Utente utente = new Utente("Utente" + (i + 1));
+            avviaRichiestaUtente(utente, tipiStrumenti.get(i % tipiStrumenti.size()), durataSecondi*1000);
+        }
 
+        //Se non arrivano altri task l'executor termina quando hanno finito
         ExecutorService esecuzione = executor;
         esecuzione.shutdown();
 
