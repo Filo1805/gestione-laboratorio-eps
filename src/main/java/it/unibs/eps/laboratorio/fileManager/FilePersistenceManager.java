@@ -17,7 +17,6 @@ import java.util.Scanner;
 * */
 
 
-
 public class FilePersistenceManager {
 
     //Nome del file in cui salvare i dati del catalogo
@@ -161,4 +160,33 @@ public class FilePersistenceManager {
         }
 
     }
+
+    /**
+     * Carica lo storico dal file registro_eventi.txt (formato "orario - descrizione")
+     * Se il file non esiste restituisce una lista nuova
+     */
+    public synchronized List<Evento> caricaEventi () {
+
+        List<Evento> eventi = new ArrayList<>();
+        File file = new File(FILE_EVENTI);
+
+        if (file.exists()) {
+            try (Scanner scanner = new Scanner(file) ) {
+
+                while(scanner.hasNextLine()) {
+                    String[] parti = scanner.nextLine().split(" - ", 2);
+                    if(parti.length == 2) {
+                        eventi.add(new Evento(parti[0], parti[1]));
+                    }
+                }
+            }
+            catch (FileNotFoundException e ) {
+                System.err.println("[ERRORE] File degli eventi non trovato: " + e.getMessage());
+            }
+        }
+
+        return eventi;
+    }
+
+
 }
