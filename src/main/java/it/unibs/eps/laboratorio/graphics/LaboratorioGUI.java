@@ -10,15 +10,17 @@ import java.util.List;
 
 public class LaboratorioGUI extends JFrame implements LaboratorioListener {
 
-   private final LaboratorioController controller;
+    private final LaboratorioController controller;
 
-   //Componenti Grafici
+    //Componenti Grafici
     private JTable tabellaStrumenti;
     private JTextArea areaListaEventi;
 
     //Bottoni
     private JButton btnAvviaSimulazione;
     private JButton btnInterrompiSimulazione;
+    private JButton btnSalva;
+    private JButton btnCarica;
 
     //Componenti statistiche superiori
     private JLabel labelDisponibili;
@@ -92,32 +94,69 @@ public class LaboratorioGUI extends JFrame implements LaboratorioListener {
         btnAvviaSimulazione = new JButton("Avvia Simulazione");
         btnInterrompiSimulazione = new JButton("Interrompi");
 
+        btnSalva = new JButton("Salva Dati");
+        btnCarica = new JButton("Carica Dati");
+
         //Stile base bottoni
         btnAvviaSimulazione.setBackground(Color.GREEN);
         btnAvviaSimulazione.setForeground(Color.WHITE);
         btnAvviaSimulazione.setFocusPainted(false);
 
+        btnInterrompiSimulazione.setBackground(Color.RED);
+        btnInterrompiSimulazione.setForeground(Color.WHITE);
+        btnInterrompiSimulazione.setFocusPainted(false);
+
+
         pannelloControlli.add(btnAvviaSimulazione);
         pannelloControlli.add(btnInterrompiSimulazione);
+        pannelloControlli.add(btnSalva);
+        pannelloControlli.add(btnCarica);
 
         add(pannelloControlli, BorderLayout.SOUTH);
 
         //4. Generatore Eventi pulsanti
         btnAvviaSimulazione.addActionListener(e -> {
-            btnAvviaSimulazione.setEnabled(false);
-            btnAvviaSimulazione.setEnabled(true);
             areaListaEventi.append("[SISTEMA] Avvio simulazione utenti...\n");
-            controller.avviaSimulazioneDefault();
+            controller.avviaSimulazioneDefault(() -> SwingUtilities.invokeLater(() -> areaListaEventi.append("[SISTEMA] Simulazione terminata.\n")));
         });
 
         btnInterrompiSimulazione.addActionListener(e -> {
-            controller.interrompiSimulazione();
-            btnAvviaSimulazione.setEnabled(true);
-            btnInterrompiSimulazione.setEnabled(false);
-            areaListaEventi.append("[SISTEMA] Simulazione interrotta.\n");
+            //Aspettiamo la fine dei thread in un thread a parte, per non bloccare la GUI
+            new Thread(() -> {
+
+                controller.interrompiSimulazione();
+                //questo invokeLater si avvia dopo gli ultimi eventi dei thread interrotti in modo che non compaiano altri messaggi sotto quello di simulazione interrotta
+                SwingUtilities.invokeLater(() -> {
+                    areaListaEventi.setText(""); //pulisce l'area di testo
+                    areaListaEventi.append("[SISTEMA] Simulazione interrotta.\n");
+                });
+
+            }).start();
+
         });
 
+        btnSalva.addActionListener(e -> {
+            controller.salvaDati();
+            areaListaEventi.append("[SISTEMA] Dati salvati su File.\n");
+        });
 
+        btnCarica.addActionListener(e -> {
+            if(controller.caricaDati()) {
+                mostraStorico();
+            }
+            else {
+                JOptionPane.showMessageDialog(this, "Impossibile caricare: ci sono strumenti in prestito o richieste in attesa.");
+            }
+        });
+
+    }
+
+    //Riempie l'area del registro eventi con lo storico attuale
+    private void mostraStorico() {
+        areaListaEventi.setText("");
+        for ( Evento ev : controller.getStoricoEventi()) {
+            areaListaEventi.append(ev.getTime() + " - " + ev.getDescrizione() + "\n" );
+        }
     }
 
     private JPanel creaCardStatistica(String titolo, JLabel label, Color colore ) {
@@ -144,8 +183,8 @@ public class LaboratorioGUI extends JFrame implements LaboratorioListener {
     }
 
 
-   @Override
-   public void onStatoAggiornato(){
+    @Override
+    public void onStatoAggiornato(){
         SwingUtilities.invokeLater(() -> {
 
             List<Strumento> strumenti = controller.getListaStrumenti();
@@ -153,7 +192,6 @@ public class LaboratorioGUI extends JFrame implements LaboratorioListener {
 
             int disponibili = 0;
             int inPrestito = 0;
-            int inAttesa = 0;
 
             for(Strumento s: strumenti) {
                 modelloTabellaStrumenti.addRow(new Object[]{s.getId(),s.getTipo(),s.getStato()});
@@ -163,20 +201,21 @@ public class LaboratorioGUI extends JFrame implements LaboratorioListener {
                 else if(s.getStato() == StatoStrumento.IN_PRESTITO ) {
                     inPrestito++;
                 }
+
             }
 
             labelDisponibili.setText(String.valueOf(disponibili));
             labelInPrestito.setText(String.valueOf(inPrestito));
+            labelInAttesa.setText(String.valueOf(controller.getRichiesteInAttesa()));
 
         });
-   };
+    };
 
     @Override
-   public void onNuovoEvento(Evento evento) {
+    public void onNuovoEvento(Evento evento) {
         SwingUtilities.invokeLater(() -> {
             areaListaEventi.append(evento.getTime() + " - " + evento.getDescrizione() + "\n");
             areaListaEventi.setCaretPosition(areaListaEventi.getDocument().getLength());
         });
     };
-
 }
