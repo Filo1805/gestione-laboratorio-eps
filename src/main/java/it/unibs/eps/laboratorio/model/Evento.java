@@ -20,6 +20,11 @@ public class Evento {
 
     }
 
+    public Evento (String time, String descrizione ) {
+        this.time = time;
+        this.descrizione = descrizione;
+    }
+
     public String getTime () { return time; }
 
     public String getDescrizione () { return descrizione; }
