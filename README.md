@@ -45,3 +45,12 @@ Il sistema gestisce la concorrenza tra più utenti (rappresentati da thread dist
 * `it.unibs.eps.laboratorio.simulation` -> Task dei thread utente (`UtenteTask`).
 * `it.unibs.eps.laboratorio.graphics` -> Interfaccia grafica Swing (`LaboratorioGUI`)[cite: 13].
 * `it.unibs.eps.laboratorio.fileManager` -> Gestione della persistenza su file di testo (`FilePersistenceManager`).
+
+## Versionamento
+* v1.0.0 : Creato package `it.unibs.eps.laboratorio.model` e le classi (`Strumento`, `Utente`, `Evento`, `Laboratorio`, `StatoStrumento`).
+* v1.1.0 : Creato package `it.unibs.eps.laboratorio.fileManager` e la classe (`FilePersistenceManager`).
+* v1.2.0 : Creato package `it.unibs.eps.laboratorio.monitor` e la classe (`MonitorLaboratorio`), aggiunti la gestione del salvataggio Eventi su file.
+* v1.3.0 : Creato package `it.unibs.eps.laboratorio.simulation` e la classe (`UtenteTask`), completato il Main con simulazione di 4 utenti che richiedono e usano gli strumenti del laboratorio.
+* v.2.0.0 : Creati package `it.unibs.eps.laboratorio.controller` e `it.unibs.eps.laboratorio.graphics` per implementazione interfaccia grafica, creata classe (`LaboratorioController`) per osservare attività del Laboratorio e comunicarle alla GUI.
+* v2.1.0 : Creata la GUI e metodi di avvio e interrompi simulazione, per adesso simulazione ancora statica con richieste e utenti inizializzati in `LaboratorioController`.
+* v2.2.0 : Aggiunta possibilità per l'utilizzatore finale di decidere il numero degli utenti e il tempo di utilizzo degli strumenti, simulazione dinamica.
