@@ -11,12 +11,15 @@ public class UtenteTask implements Runnable {
     private final MonitorLaboratorio monitor;
     private final Utente utente;
     private final String tipoStrumentoRichiesto;
+    private final int durataPrestito;
     private static final FilePersistenceManager fileManager = new FilePersistenceManager();;
 
-    public UtenteTask(MonitorLaboratorio monitor, Utente utente, String tipoStrumentoRichiesto ) {
+    public UtenteTask(MonitorLaboratorio monitor, Utente utente, String tipoStrumentoRichiesto, int durataPrestito ) {
         this.monitor = monitor;
         this.utente = utente;
+        this.durataPrestito = durataPrestito;
         this.tipoStrumentoRichiesto = tipoStrumentoRichiesto;
+
     }
 
     @Override
@@ -36,9 +39,8 @@ public class UtenteTask implements Runnable {
             fileManager.salvaEventi(monitor.getStoricoEventi());
 
             //2. Simulazione dell'utilizzo dello strumento
-            int tempoUtilizzo = 3000;
             //System.out.println("[UTILIZZO] " + utente.getName() + " sta usando lo strumento " + strumentoOttenuto.getId() + " per: " + (tempoUtilizzo/1000) + " secondi... ");
-            Thread.sleep(tempoUtilizzo);
+            Thread.sleep(durataPrestito);
         }
         catch (InterruptedException e ) {
             System.out.println("[INTERROTTO] Il thread dell'utente " + utente.getName() + " é stato interrotto.");
