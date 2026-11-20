@@ -22,14 +22,28 @@ Il sistema gestisce la concorrenza tra più utenti (rappresentati da thread dist
 
 ### Prerequisiti
 * **Java Development Kit (JDK)** versione 11 o superiore.
-* Un ambiente di sviluppo integrato (IDE).
+* Un IDE Java (facoltativo, necessario solo per l'esecuzione tramite IDE).
 
 ### Esecuzione tramite IDE 
 1. Clona o scarica la repository del progetto.
 2. Apri l'IDE e seleziona **Open** scegliendo la cartella principale del progetto (`gestione-laboratorio-eps`).
-3. Assicurati che la cartella `src\main\java` sia configurata come **Sources Root**.
+3. Assicurati che la cartella `gestione-progetto-eps\src\main\java` sia configurata come **Sources Root**.
 4. Individua la classe principale: `it.unibs.eps.laboratorio.Main`.
 5. Clicca sul tasto **Run** accanto al 'main' per avviare l'applicazione grafica.
+
+### Esecuzione tramite Terminale
+È possibile compilare ed eseguire il programma direttamente da terminale, senza utilizzare IDE
+
+1. **Aprire il Terminale**
+   * Posizionarsi nella cartella principale del progetto `cd gestione-laboratorio-eps`.
+2. **Compilare il codice sorgente**
+   * Su Windows(PowerShell) copiare: `New-Item -ItemType Directory -Force -Path out
+$sources = Get-ChildItem -Path "gestione-progetto-eps/src/main/java" -Recurse -Filter "*.java" | ForEach-Object { $_.FullName }
+javac -d out $sources`.
+    * Su Linux/macOS copiare: `mkdir -p out
+javac -d out $(find gestione-progetto-eps/src/main/java -name "*.java")`.
+3. **Avviare l'applicazione**
+    * Eseguire il comando: `java -cp out it.unibs.eps.laboratorio.Main`.
 
 ### Utilizzo della Simulazione
 1. All'apertura della finestra, vedrai il catalogo degli strumenti caricato da file (`catalogo_strumenti.txt`).
