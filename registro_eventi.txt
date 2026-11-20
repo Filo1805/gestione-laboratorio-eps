@@ -474,3 +474,20 @@
 20-11-2026 11:40:56 - L'utente Utente2 ha preso in prestito lo strumento: Multimetro
 20-11-2026 11:40:59 - L'utente Utente2 ha restituito lo strumento: Multimetro
 20-11-2026 11:40:59 - L'utente Utente4 ha restituito lo strumento: Oscilloscopio
+20-11-2026 16:09:51 - L'utente Utente1 ha preso in prestito lo strumento: Oscilloscopio
+20-11-2026 16:09:51 - L'utente Utente3 ha preso in prestito lo strumento: Generatore
+20-11-2026 16:09:51 - L'utente Utente4 è in attesa dello strumento: Oscilloscopio
+20-11-2026 16:09:51 - L'utente Utente2 ha preso in prestito lo strumento: Multimetro
+20-11-2026 16:09:51 - L'utente Utente5 è in attesa dello strumento: Multimetro
+20-11-2026 16:09:54 - L'utente Utente2 ha restituito lo strumento: Multimetro
+20-11-2026 16:09:54 - L'utente Utente3 ha restituito lo strumento: Generatore
+20-11-2026 16:09:54 - L'utente Utente5 ha preso in prestito lo strumento: Multimetro
+20-11-2026 16:09:54 - L'utente Utente1 ha restituito lo strumento: Oscilloscopio
+20-11-2026 16:09:54 - L'utente Utente4 ha preso in prestito lo strumento: Oscilloscopio
+20-11-2026 16:09:57 - L'utente Utente5 ha restituito lo strumento: Multimetro
+20-11-2026 16:09:57 - L'utente Utente4 ha restituito lo strumento: Oscilloscopio
+20-11-2026 16:15:04 - L'utente Utente1 ha preso in prestito lo strumento: Oscilloscopio
+20-11-2026 16:15:04 - L'utente Utente5 ha preso in prestito lo strumento: Multimetro
+20-11-2026 16:15:04 - L'utente Utente3 ha preso in prestito lo strumento: Generatore
+20-11-2026 16:15:04 - L'utente Utente4 è in attesa dello strumento: Oscilloscopio
+20-11-2026 16:15:04 - L'utente Utente2 è in attesa dello strumento: Multimetro
