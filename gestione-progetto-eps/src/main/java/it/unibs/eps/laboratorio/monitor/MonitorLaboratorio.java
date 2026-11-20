@@ -3,9 +3,7 @@ package it.unibs.eps.laboratorio.monitor;
 import it.unibs.eps.laboratorio.model.*;
 
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Monitor che gestisce la disponibilità degli strumenti: nucleo della sincronizzazione.
@@ -41,6 +39,8 @@ public class MonitorLaboratorio {
         this.laboratorio = new Laboratorio();
     }
 
+    /**Costruttore usato solo nei test */
+    public MonitorLaboratorio(Laboratorio laboratorio) {this.laboratorio = laboratorio;};
 
     /**
      * Richiede uno strumento del tipo indicato. Se tutti gli strumenti di quel tipo sono occupati

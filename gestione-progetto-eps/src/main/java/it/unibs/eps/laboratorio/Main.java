@@ -2,10 +2,7 @@ package it.unibs.eps.laboratorio;
 
 import it.unibs.eps.laboratorio.controller.LaboratorioController;
 import it.unibs.eps.laboratorio.graphics.LaboratorioGUI;
-import it.unibs.eps.laboratorio.model.Laboratorio;
-import it.unibs.eps.laboratorio.model.Utente;
 import it.unibs.eps.laboratorio.monitor.MonitorLaboratorio;
-import it.unibs.eps.laboratorio.simulation.UtenteTask;
 
 import javax.swing.*;
 

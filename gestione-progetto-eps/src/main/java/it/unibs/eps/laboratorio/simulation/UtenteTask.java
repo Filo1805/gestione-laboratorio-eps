@@ -1,7 +1,6 @@
 package it.unibs.eps.laboratorio.simulation;
 
 import it.unibs.eps.laboratorio.fileManager.FilePersistenceManager;
-import it.unibs.eps.laboratorio.model.StatoRichiesta;
 import it.unibs.eps.laboratorio.model.Strumento;
 import it.unibs.eps.laboratorio.model.Utente;
 import it.unibs.eps.laboratorio.monitor.MonitorLaboratorio;

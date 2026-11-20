@@ -28,6 +28,12 @@ public class Laboratorio {
         this.storicoEventi = fileManager.caricaEventi();
     }
 
+    /** Costruttore creato solo per i test */
+    public Laboratorio(List<Strumento> strumenti) {
+        this.strumenti = strumenti;
+        this.fileManager = new FilePersistenceManager();
+        this.storicoEventi = fileManager.caricaEventi();
+    }
     /** Metodi get */
     public synchronized List<Strumento> getStrumenti () {
         return strumenti;
