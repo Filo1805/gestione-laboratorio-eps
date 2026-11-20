@@ -9,21 +9,39 @@ import it.unibs.eps.laboratorio.simulation.UtenteTask;
 
 import javax.swing.*;
 
+/**
+ *  Punto di ingresso dell'applicazione
+ *
+ *  Costruisce i tre oggetti principali e li collega tra loro:
+ *
+ *  MonitorLaboratorio (stato condiviso + sincronizzazione)
+ *         ^
+ *  Laboratorio Controller (collega interfaccia grafica e simulazione al monitor
+ *         ^
+ *  LaboratorioGUI (interfaccia Swing, creata nel thread grafico)
+ */
+
 public class Main {
 
-    public static final String version = "v2.2.0";
+    /** Versione corrente del programma, mostrata anche nel titolo della finestra di interfaccia grafica. **/
+    public static final String version = "v2.3.0";
 
     public static void main(String[] args){
 
+        //Monitor crea e protegge lo stato del laboratorio (catalogo_strumenti e storico_eventi caricati da file)
         MonitorLaboratorio monitor = new MonitorLaboratorio();
         LaboratorioController controller = new LaboratorioController(monitor);
 
+        //Finestra Swing creata e usata solo nel thread grafico
         SwingUtilities.invokeLater(() -> {
             LaboratorioGUI graphic = new LaboratorioGUI(controller);
             graphic.setVisible(true);
         });
 
-        /** TUTTO QUELLO CHE È COMMENTATO QUA SOTTO FA PARTE DI UNA BETA DI TEST DEL PROGRAMMA
+        /**
+         * TUTTO QUELLO CHE È COMMENTATO QUA SOTTO FA PARTE DI UNA BETA DI TEST DEL PROGRAMMA
+         * PER TESTARE IL PROGRAMMA CON UNA SIMULAZIONE STATICA 5 UTENTI CON RESPONSO IN TERMINALE
+         * DELL'IDE
 
         System.out.println("-Avvio del progetto Laboratorio EPS-");
 
@@ -36,7 +54,7 @@ public class Main {
         //3. Creazione di 4 utenti di test
         Utente u1 = new Utente("Ciri");
         Utente u2 = new Utente("Betti");
-        Utente u3 = new Utente( "Lofi");
+        Utente u3 = new Utente("Lofi");
         Utente u4 = new Utente("Mathias");
 
         //Creazione della pool di 4 thread
@@ -60,7 +78,7 @@ public class Main {
             }
 
         }
-        catch ( InterruptedException e ) {
+        catch (InterruptedException e) {
             System.err.println("[ERRORE] Il thread principale è stato interrotto.");
             executor.shutdownNow();
             Thread.currentThread().interrupt();
