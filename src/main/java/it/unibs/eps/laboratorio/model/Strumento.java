@@ -1,25 +1,30 @@
 package it.unibs.eps.laboratorio.model;
 
-//Classe Strumento gestisce inizializzazione e modifiche agli strumenti del laboratorio
+/**
+ * Uno strumento del catalogo laboratorio, con identificativo univoco, tipo e stato.
+ *
+ */
 public class Strumento {
 
-    private String id;
-    private String tipo;
+    private String id;      //Identificativo univoco
+    private String tipo;    //tipo dello strumento: gli utenti richiedono il tipo
     private StatoStrumento stato;
 
+    /** Crea uno strumento inizialmente DISPONIBILE */
     public Strumento (String id, String tipo ){
         this.id = id;
         this.tipo = tipo;
         this.stato = StatoStrumento.DISPONIBILE;
     }
 
+    /** Crea uno strumento con uno stato specifico (usato per le copie e caricamento su file) */
     public Strumento (String id, String tipo, StatoStrumento stato ) {
         this.id = id;
         this.tipo = tipo;
         this.stato = stato;
     }
 
-    //Metodi Get supplementari (VEDERE SE ELIMINARE IN CASO DI NON UTILIZZO)
+
     public String getId (){
         return this.id;
     }
@@ -32,7 +37,7 @@ public class Strumento {
         return this.stato;
     }
 
-    //Metodo per cambiare lo stato dello strumento
+    /** Cambia lo stato dello strumento */
     public void setStato (StatoStrumento nuovoStato ) {
         this.stato = nuovoStato;
     }
