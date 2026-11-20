@@ -14,8 +14,16 @@ import java.util.Scanner;
 /**
 *Classe FilePercistenceManager responsabile delle operazioni di persistenza (salvataggio e aggiornamento)
 * del catalogo degli strumenti su file di testo.
+ *
+ *      - catalogo_strumenti.txt: una riga per strumento, formato ID;TIPO;STATO
+ *      - registro_eventi.txt: una riga per evento, formato "orario - descrizione"
+ *
+ * Se il catalogo non esiste, è vuoto o illeggibile viene creato quello predefinito.
+ * Uno strumento salvato come IN_PRESTITO viene ricaricato come DISPONIBILE, perchè dopo un riavvio
+ * nessun thread lo sta più usando. Metodi di scrittura synchronized, così più thread non scrivono
+ * sullo stesso file contemporaneamente.
+ *
 * */
-
 
 public class FilePersistenceManager {
 
