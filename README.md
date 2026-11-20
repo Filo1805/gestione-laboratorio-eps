@@ -54,4 +54,5 @@ Il sistema gestisce la concorrenza tra più utenti (rappresentati da thread dist
 * v.2.0.0 : Creati package `it.unibs.eps.laboratorio.controller` e `it.unibs.eps.laboratorio.graphics` per implementazione interfaccia grafica, creata classe (`LaboratorioController`) per osservare attività del Laboratorio e comunicarle alla GUI.
 * v2.1.0 : Creata la GUI e metodi di avvio e interrompi simulazione, per adesso simulazione ancora statica con richieste e utenti inizializzati in `LaboratorioController`.
 * v2.2.0 : Aggiunta possibilità per l'utilizzatore finale di decidere il numero degli utenti e il tempo di utilizzo degli strumenti, simulazione dinamica.
-* v2.3.0 : Aggiunta classe `Richiesta` e Enum `StatoRichiesta`, in questo modo ora è possibile visualizzare nella GUI lo stato delle richieste per ogni utente. Aggiunti commenti opportuni in tutte le classi. 
+* v2.3.0 : Aggiunta classe `Richiesta` e Enum `StatoRichiesta`, in questo modo ora è possibile visualizzare nella GUI lo stato delle richieste per ogni utente. Aggiunti commenti opportuni in tutte le classi.
+* v2.4.0 : Aggiunta cartella `test` contenente test JUnit per `MontorLaboratorio`, versione finale del programma.
