@@ -37,9 +37,7 @@ Il sistema gestisce la concorrenza tra più utenti (rappresentati da thread dist
 1. **Aprire il Terminale**
    * Posizionarsi nella cartella principale del progetto `cd gestione-laboratorio-eps`.
 2. **Compilare il codice sorgente**
-   * Su Windows(PowerShell) copiare: `New-Item -ItemType Directory -Force -Path out
-$sources = Get-ChildItem -Path "gestione-progetto-eps/src/main/java" -Recurse -Filter "*.java" | ForEach-Object { $_.FullName }
-javac -d out $sources`.
+   * Su Windows(PowerShell) copiare: `javac -d out (Get-ChildItem "gestione-progetto-eps/src/main/java" -Recurse -Filter *.java).FullName`.
     * Su Linux/macOS copiare: `mkdir -p out
 javac -d out $(find gestione-progetto-eps/src/main/java -name "*.java")`.
 3. **Avviare l'applicazione**
