@@ -1,4 +1,4 @@
-OSC-01;Oscilloscopio;DISPONIBILE
-MUL-01;Multimetro;DISPONIBILE
+OSC-01;Oscilloscopio;IN_PRESTITO
+MUL-01;Multimetro;IN_PRESTITO
 GEN-01;Generatore;DISPONIBILE
 GEN-02;Generatore;DISPONIBILE
