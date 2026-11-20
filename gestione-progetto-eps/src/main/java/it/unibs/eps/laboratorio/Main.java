@@ -21,7 +21,7 @@ import javax.swing.*;
 public class Main {
 
     /** Versione corrente del programma, mostrata anche nel titolo della finestra di interfaccia grafica. **/
-    public static final String version = "v2.3.0";
+    public static final String version = "v2.4.0";
 
     public static void main(String[] args){
 
